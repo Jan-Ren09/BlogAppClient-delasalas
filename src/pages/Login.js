@@ -25,7 +25,7 @@ export default function Login() {
     // Changed the function declaration from "function" to "const" to maintain consistency.
     const authenticate = (e) => {
         e.preventDefault();
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/login`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}users/login`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -61,7 +61,7 @@ export default function Login() {
     };
 
     const retrieveUserDetails = (token) => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/user`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}users/user`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

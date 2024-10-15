@@ -16,7 +16,7 @@ export default function BlogCard({ post, onDelete, onEdit }) {
     console.log(comments)
     const handleShowComments = () => {
         setShowCommentModal(true);
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/blog/${post._id}`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}blog/${post._id}`)
             .then(response => {
                 if (!response) {
                     
@@ -37,7 +37,7 @@ export default function BlogCard({ post, onDelete, onEdit }) {
     const handleAddComment = () => {
         if (!newComment) return notyf.error('Comment cannot be empty');
         
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/blog/${post._id}/comments`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}blog/${post._id}/comments`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export default function BlogCard({ post, onDelete, onEdit }) {
 
     // Handle deleting a comment
     const handleDeleteComment = (commentId) => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/blog/comments/${commentId}`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}blog/comments/${commentId}`, {
             method: "PATCH",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -85,7 +85,7 @@ export default function BlogCard({ post, onDelete, onEdit }) {
     };
 
     const handleEditBlog = () => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/blog/${post._id}`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}blog/${post._id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": "application/json",
@@ -117,7 +117,7 @@ export default function BlogCard({ post, onDelete, onEdit }) {
     // Handle delete blog
     const handleDeleteBlog = () => {
         if (window.confirm("Are you sure you want to delete this blog?")) {
-            fetch(`${process.env.REACT_APP_API_BASE_URL}/blog/${post._id}`, {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}blog/${post._id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,

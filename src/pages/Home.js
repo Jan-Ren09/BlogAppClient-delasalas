@@ -15,7 +15,7 @@ export default function Home() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/blog/`, {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}blog/`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchPosts = () => {
-            fetch(`${process.env.REACT_APP_API_BASE_URL}/blog/posts`, {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}blog/posts`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
